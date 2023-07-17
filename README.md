@@ -1,8 +1,9 @@
 
 
 # GithubUsers Code Challenge
-The app is an Android application that allows users to search for Github users.
-Features
+The app is an Android application that allows users to search for GitHub users.
+
+# Features
 
     * Search for Github users by their username
     * View user details including their avatar, username, name, bio, and number of followers and following
