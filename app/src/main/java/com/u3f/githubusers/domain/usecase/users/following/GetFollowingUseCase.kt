@@ -1,0 +1,31 @@
+package com.u3f.githubusers.domain.usecase.users.following
+
+import com.u3f.githubusers.base.common.Response
+import com.u3f.githubusers.base.util.ErrorConverter
+import com.u3f.githubusers.domain.model.search.UserDataClass
+import com.u3f.githubusers.domain.model.users.FollowerDataClass
+import com.u3f.githubusers.domain.repository.search.SearchRepository
+import com.u3f.githubusers.domain.repository.users.UsersRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import retrofit2.HttpException
+import java.io.IOException
+import javax.inject.Inject
+
+class GetFollowingUseCase @Inject constructor(
+    private val usersRepository: UsersRepository
+) {
+    fun execute(username: String): Flow<Response<List<FollowerDataClass>>> = flow {
+        try {
+            emit(Response.Loading)
+            val users = usersRepository.getFollowing(username)
+            emit(Response.Success(users))
+        } catch (e: HttpException) {
+            emit(Response.Error(ErrorConverter.castAPIError(e)))
+        } catch (e: IOException) {
+            emit(Response.Error(ErrorConverter.castIOError(e)))
+        }
+    }.flowOn(Dispatchers.IO)
+}
