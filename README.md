@@ -1,7 +1,7 @@
 
 
 # GithubUsers Code Challenge
-App is an Android application that allows users to search for Github users and add them to their favorites list.
+The app is an Android application that allows users to search for Github users.
 Features
 
     * Search for Github users by their username
@@ -32,6 +32,6 @@ The app is developed using the following technologies:
     * Android Jetpack - a collection of libraries used for building Android apps
     * Hilt - a dependency injection library used for managing dependencies
     * Retrofit - a networking library used for making API calls
-    * Glide - an image loading and caching library used for loading images from network
+    * Glide - an image loading and caching library used for loading images from the network
     
 
