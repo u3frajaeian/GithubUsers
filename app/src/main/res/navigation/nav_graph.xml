@@ -17,12 +17,6 @@
                 app:argType="com.u3f.githubusers.domain.model.search.UserModel"/>
         </action>
     </fragment>
-    <fragment
-        android:id="@+id/fragmentFavourite"
-        android:name="com.u3f.githubusers.presentation.favorite.FavouriteFragment"
-        android:label="fragment_favourite"
-        tools:layout="@layout/fragment_favorite"
-        />
 
     <fragment
         android:id="@+id/splashFragment"
@@ -55,9 +49,5 @@
         android:name="com.u3f.githubusers.presentation.users.following.FollowingFragment"
         android:label="FollowersFragment"
         tools:layout="@layout/fragment_follower"/>
-    <action
-        android:id="@+id/toFavourite"
-        app:destination="@id/fragmentFavourite"
 
-        />
 </navigation>

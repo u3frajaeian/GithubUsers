@@ -46,24 +46,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        super.onCreateOptionsMenu(menu)
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        super.onOptionsItemSelected(item)
-        when (item.itemId) {
-            R.id.goto_fav -> {
-                navController.navigate(R.id.toFavourite)
-            }
-            R.id.goto_lang -> {}
-            R.id.goto_setting -> {}
-        }
-        return false
-    }
 
 }
 

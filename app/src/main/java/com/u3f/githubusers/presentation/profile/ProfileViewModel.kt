@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.u3f.githubusers.base.common.Response
 import com.u3f.githubusers.domain.model.profile.ProfileModel
-import com.u3f.githubusers.domain.usecase.profile.InsertFavUseCase
 import com.u3f.githubusers.domain.usecase.profile.GetProfileUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.u3f.githubusers.presentation.extension.asLiveData
@@ -14,7 +13,7 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(private val getProfileUseCase: GetProfileUseCase,private val insertFavUseCase: InsertFavUseCase) : ViewModel() {
+class ProfileViewModel @Inject constructor(private val getProfileUseCase: GetProfileUseCase) : ViewModel() {
     private val _state = MutableLiveData<ProfileState>()
     val state = _state.asLiveData()
     fun getUser(username: String) {
@@ -36,7 +35,5 @@ class ProfileViewModel @Inject constructor(private val getProfileUseCase: GetPro
         }.launchIn(viewModelScope)
     }
 
-    fun addToFavourite(user: ProfileModel) {
-        insertFavUseCase.execute(username = user).launchIn(viewModelScope)
-    }
+
 }
